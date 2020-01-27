@@ -9,7 +9,7 @@ class App extends Component {
 
   state = {
 
-    name: "dsd",
+    name: ["david", "sam", "alina", "bree"],
     showSearch: false
 
   }
@@ -21,7 +21,7 @@ class App extends Component {
 
   }
 
-  toggleSearchHandler = (event) => {
+  toggleSearchHandler = (e) => {
 
     const doesShow = this.state.showSearch;
     this.setState({ showSearch: !doesShow });
@@ -39,10 +39,14 @@ class App extends Component {
       showDisplay = (
 
         <div>
-          <Display
-            student={this.state.name}
-          />
-          <h1> hello worldddddddddddddddddddd</h1>
+          {this.state.name.map(name => {
+
+            return <Display
+              name={name}
+
+            />
+
+          })}
 
 
         </div>
@@ -58,11 +62,12 @@ class App extends Component {
 <Search
           searchStudent={this.searchChangeHandler} />
 
+
         <button
           onClick={this.toggleSearchHandler}>
           SHOW RESULTS
         </button>
-        {console.log(this.state.name)};
+        {showDisplay};
       </div>
 
     )
