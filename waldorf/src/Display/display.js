@@ -10,10 +10,10 @@ const Display = (props) => {
         <div>
 
             <h3> the student you are looking for is : </h3>
-            <h5> {props.name}</h5>
+           
             <br />
-            <h5> {props.student} </h5>
-
+         
+            <h5> {props.name}</h5>
         </div>
 
     )

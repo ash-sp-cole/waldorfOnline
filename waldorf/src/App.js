@@ -1,78 +1,73 @@
 import React, { Component } from 'react';
+import Display from "./Display/display";
 import Search from './search';
-import Display from './Display/display';
-
-
+import Validation from './validation/validation';
+import Char from './charComponent/char';
 
 
 class App extends Component {
 
-  state = {
-
-    name: ["david", "sam", "alina", "bree"],
-    showSearch: false
-
-  }
-
-  searchChangeHandler = (e) => {
-
-    this.setState({ name: e.target.value })
+state = {
+userInput: ''
 
 
-  }
-
-  toggleSearchHandler = (e) => {
-
-    const doesShow = this.state.showSearch;
-    this.setState({ showSearch: !doesShow });
-
-
-  }
-
-  render() {
-
-    let showDisplay = null;
-
-
-    if (this.state.showSearch) {
-
-      showDisplay = (
-
-        <div>
-          {this.state.name.map(name => {
-
-            return <Display
-              name={name}
-
-            />
-
-          })}
-
-
-        </div>
-      )
-
-    }
+}
 
 
 
-    return (
-      <div>
-        hello test waldorf world
-<Search
-          searchStudent={this.searchChangeHandler} />
+inputChangeHandler = (e)=>{
+
+this.setState({
+  userInput: e.target.value
+})
 
 
-        <button
-          onClick={this.toggleSearchHandler}>
-          SHOW RESULTS
-        </button>
-        {showDisplay};
-      </div>
 
-    )
+}
 
-  }
+
+
+
+
+
+
+
+render(){
+
+const charList = this.state.userInput.split('').map(ch => {
+
+  return <Char  character={ch}/>
+
+
+
+});
+
+
+return (
+
+<div>
+
+ <input type ='text' 
+ onChange= {this.inputChangeHandler} 
+  value={this.state.userInput}></input> 
+  <p> 
+
+    INLINE INPUT : 
+    {this.state.userInput}
+    <hr/>
+  </p>
+  <Display name={this.state.userInput}/>
+
+  <Validation size = {this.state.userInput.length}/>
+   {charList}
+</div>
+
+
+)
+
+
+
+}
 
 }
 

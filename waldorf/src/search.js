@@ -9,10 +9,9 @@ return (
 <div>
     <h1> Student search </h1>
 
-    <input type="text" onChange = {props.searchStudent} >
+    <input type="text" onChange = {props.name} ></input>
   
-    </input>
-
+ 
 </div>
 
 
