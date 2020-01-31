@@ -25,7 +25,17 @@ this.setState({
 
 }
 
+deleteChangeHandler = (index) =>{
 
+
+const text = this.state.userInput.split('');
+text.splice(index,1);
+const updateText = text.join('');
+this.setState({
+  userInput: updateText
+})
+
+}
 
 
 
@@ -34,9 +44,13 @@ this.setState({
 
 render(){
 
-const charList = this.state.userInput.split('').map(ch => {
+const charList = this.state.userInput.split('').map((ch, index) => {
 
-  return <Char  character={ch}/>
+  return <Char  
+  character={ch} 
+  key={index}
+  clicked={()=> this.deleteChangeHandler(index)}
+  />
 
 
 
