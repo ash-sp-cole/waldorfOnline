@@ -1,26 +1,38 @@
 import React, { Component } from 'react';
 import Display from './Display/display';
-
-import { createStore } from 'redux';
-
-const initialState = {
-tech: 'react'
-
-};
-const store = createStore(reducer, initialState);
+import { store } from './store/index';
+import setTech from './actions/index';
+import setTechReducer from './reducers/index';
 
 class App extends Component {
 
 
+  dispacthButtonElm() {
 
-render() {
-  return(
-    <div>
-      <h3> APP REDUX </h3>
-      <Display name="test state"/>
-    </div>
-  )
-}
+    const text= 'Elm';
+    store.dispatch(setTech(text));
+    console.log("updated store " + store.getState().tech);
+  }
+
+  dispacthButtonRedux() {
+
+    const text= 'redux';
+    store.dispatch(setTech(text));
+   console.log("updated store " + store.getState().tech);
+  }
+
+
+  render() {
+    return (
+      <div>
+        <h3> APP REDUX </h3>
+        <button>React</button>
+        <button onClick={this.dispacthButtonElm}> elm </button>
+        <button onClick={this.dispacthButtonRedux}> react-redux</button>
+        <Display name={store.getState().tech} />
+      </div>
+    )
+  }
 
 }
 
