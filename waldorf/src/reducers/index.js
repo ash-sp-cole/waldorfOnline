@@ -1,18 +1,20 @@
-const rootReducer = (state,action) => {
-console.log("test reducer");
-if (action.type === "SET_TECH"){
+import * as actionTypes from '../actions';
 
-    return {
-    ...state,
-        tech : action.text
+const intialState = {
+    data: "test orgiinal state"
+}
 
+const reducer = (state = intialState, action ) => {
+
+    if(actionTypes === "SET_TECH") {
+        return {...state,
+        data: action.text
     }
 
-
-
-}
+    }
 
 return state;
 
 }
-export default rootReducer;
+
+export default reducer;

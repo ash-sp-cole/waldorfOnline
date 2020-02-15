@@ -3,6 +3,15 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 
-const render = () => ReactDOM.render(<App />, document.getElementById("root"));
+import {Provider} from 'react-redux';
+import { createStore } from 'redux';
+import reducer from './reducers';
 
-render();
+
+
+const store = createStore (reducer);
+
+console.log(store.data);
+
+ ReactDOM.render(<Provider store = {store}> <App /> </Provider>, document.getElementById("root"));
+

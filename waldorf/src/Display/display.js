@@ -1,8 +1,10 @@
 import React from 'react';
 
 
-
 const Display = (props) => {
+
+    
+
 
     return (
 
@@ -13,7 +15,7 @@ const Display = (props) => {
            
             <br />
          
-            <h5> {props.name}</h5>
+            <h5>{props.data}</h5>
         </div>
 
     )

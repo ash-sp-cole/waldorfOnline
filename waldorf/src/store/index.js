@@ -1,9 +1,5 @@
-import { createStore } from 'redux';
-import rootReducer from '../reducers/index';
+import {createStore} from 'redux';
+
+// import reducer
 
 
-const initialState = {
-    tech : 'intiatlSEt statel'
-};
-
-export const store = createStore(rootReducer,initialState);
