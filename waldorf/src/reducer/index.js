@@ -1,5 +1,5 @@
 
-const reducer = ( state) => {
+const reducer = (state) => {
     return state;
 }
 
