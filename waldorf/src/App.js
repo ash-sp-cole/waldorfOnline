@@ -1,5 +1,40 @@
 import React, { Component } from 'react';
-import store from './store';
+
+import {createStore} from 'redux';
+
+const initialState = {
+    data: "test"
+}
+
+
+const reducer = (state = initialState , action) => {
+
+    if(action.type === "ADD_DATA") {
+
+       return {
+           ...state,
+           data:action.payload
+       }
+
+    }
+
+
+return state;
+
+
+}
+
+
+const store = createStore(reducer);
+
+
+store.subscribe( () => {
+    console.log("subscription function" , store.getState());
+})
+
+
+
+ 
 
 class App extends Component {
 
@@ -10,7 +45,7 @@ return (
 <div>
 <h3> REDUX app</h3>
     <h1>
-        {store.getStore().data}
+      {store.getState().data}
     </h1>
 </div>
 )
