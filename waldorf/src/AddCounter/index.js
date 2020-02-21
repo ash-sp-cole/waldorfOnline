@@ -7,7 +7,12 @@ class AddCounter extends Component {
             <div>
 
             <h3> add counter</h3>
-            <Display/>
+            <Display
+            left={'left'}
+            middle={'middle'}
+            right={'right'}
+            
+            />
             </div>
         )
     }

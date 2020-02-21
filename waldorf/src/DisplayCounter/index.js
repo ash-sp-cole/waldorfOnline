@@ -1,30 +1,22 @@
 import React from 'react';
-import Col from 'react-boots'
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
 const Display = (props) => {
-    return(
+    return (
         <div>
             <h3>
                 Display
             </h3>
-            <br/>
-            <Col >
-             <div className="box">
-                 <h3> left counter is</h3>
-                 {props.left}
-             </div>
-             </Col>
-             <Col>
-             <div className="box">
-                 <h3> middle counter is</h3>
-                 {props.left}
-             </div>
-             </Col>
-             <Col>
-             <div className="box">
-                 <h3> right counter is</h3>
-                 {props.left}
-             </div>
-             </Col>
+            <br />
+            <Container>
+                <Row>
+                    <Col>{props.left}</Col>
+                    <Col>{props.middle}</Col>
+                    <Col>{props.right}</Col>
+                </Row>
+               
+            </Container>
         </div>
     )
 }
