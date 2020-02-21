@@ -1,47 +1,16 @@
 import React, { Component } from 'react';
 
-import {store} from './store';
-
-
-
-
+import AddCounter from './AddCounter';
 
 class App extends Component {
-
-onClickChangeHandler = () => {
-
-
-    store.dispatch({
-        type: "ADD_DATA",
-        payload :"new test 88"
-    })
-    
-  this.componentDidUpdate();
-    
-
+    render(){
+        return(
+            <div>
+                <h5> new reudx app </h5>
+              <AddCounter/>
+            </div>
+        )
+    }
 }
-componentDidUpdate () {
-    store.getState();
-    store.subscribe( ()=>{
-        console.log("subs", store.getState())
-    })
-
-}
-
-render() {
-
-return (
-
-<div>
-<h3> REDUX app</h3>
-<button onClick={this.onClickChangeHandler}> Click me please </button>
-    <h1>
-    {store.getState().data}
-    </h1>
-</div>
-)
-}
-}
-
 
 export default App;
