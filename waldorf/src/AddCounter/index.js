@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Display from '../DisplayCounter';
+import {connect} from 'react-redux';
 
 class AddCounter extends Component {
     render(){
@@ -17,4 +18,4 @@ class AddCounter extends Component {
         )
     }
 }
-export default AddCounter;
+export default connect() (AddCounter);
