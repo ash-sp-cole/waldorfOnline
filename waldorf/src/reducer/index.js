@@ -2,12 +2,12 @@
 
 const initialState = {
     counter1: 1,
-    counter2: 2,
+    counter2: "results....",
     counter3: 3
 }
 
 const reducer = (state = initialState, action)  => {
-
+  
     if (action.type === "ADD_COUNTER1"){
         return{
             ...state,
@@ -17,9 +17,16 @@ const reducer = (state = initialState, action)  => {
     else if(action.type ==="MINUS_COUNTER1"){
         return{
             ...state,
-            counter1 : state.counter1--
+            counter1 : state.counter1 -1
         }
     }
+    else if(action.type ==="ADD_DATA"){
+        return{
+            ...state,
+            counter2 : action.payload
+        }
+    }
+
 return state;
 
 }
