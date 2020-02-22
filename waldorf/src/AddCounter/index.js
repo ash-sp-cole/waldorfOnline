@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/col';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
+import WeatherDisplay from '../WeatherDisplay';
 class AddCounter extends Component {
 
 eventChangeHandler(e) {
@@ -46,8 +47,8 @@ eventChangeHandler(e) {
                         </InputGroup>
                     </Col>
                     <Col> 
-                    {this.props.inputProp}
                     
+                    <WeatherDisplay weatherCity={this.props.inputProp} />
                      </Col>
                 </Row>
             </div>
