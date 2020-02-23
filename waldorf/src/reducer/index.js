@@ -2,12 +2,12 @@
 
 const initialState = {
     counter1: 1,
-    counter2: "results....",
-    counter3: 3
+    counter2: ["results...."],
+    counter3: ""
 }
 
 const reducer = (state = initialState, action)  => {
-  
+  console.log('reducer value ',state.counter3);
     if (action.type === "ADD_COUNTER1"){
         return{
             ...state,
@@ -26,6 +26,13 @@ const reducer = (state = initialState, action)  => {
             counter2 : action.payload
         }
     }
+    else if(action.type ==="ADD_API"){
+        return{
+            ...state,
+            counter3 : action.payload
+        }
+    }
+    
 
 return state;
 
