@@ -27,10 +27,8 @@ const reducer = (state = initialState, action)  => {
         }
     }
     else if(action.type ==="ADD_API"){
-        return{
-            ...state,
-            counter3 : action.payload
-        }
+        return Object.assign({}, state, action.payload)
+       
     }
     
 
