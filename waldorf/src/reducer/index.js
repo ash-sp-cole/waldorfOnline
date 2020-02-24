@@ -2,7 +2,7 @@
 
 const initialState = {
     counter1: 1,
-    counter2: "",
+    counter2: "enter city",
     counter3: "..."
 }
 
