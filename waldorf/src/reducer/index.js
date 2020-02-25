@@ -3,7 +3,8 @@
 const initialState = {
     counter1: 1,
     counter2: "enter city",
-    counter3: []
+    storeTemp: [],
+    storeCityName : ""
 }
 
 const reducer = (state = initialState, action)  => {
@@ -29,10 +30,15 @@ const reducer = (state = initialState, action)  => {
     else if(action.type ==="ADD_API"){
       
         return  { ...state,
-        counter3 : action.payload
+        storeCityName: action.payload
         }
     }
-  
+    else if(action.type ==="ADD_API_TEMP"){
+      
+        return  { ...state,
+        storeTemp : action.payload
+        }
+    }
     
 
 return state;

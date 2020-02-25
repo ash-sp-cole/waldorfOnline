@@ -1,13 +1,23 @@
 
 import axios from 'axios';
+export const ADD_API_TEMP = "ADD_API_TEMP";
 export const ADD_API = "ADD_API";
 
-
 export const getWeather = (response) => ({
+
+    type: ADD_API_TEMP,
+    payload: response
+});
+
+
+
+export const getCityName = (response) => ({
 
     type: ADD_API,
     payload: response
 });
+
+
 
 export const fetchApiWeather =  (city) =>{
 
@@ -19,7 +29,7 @@ export const fetchApiWeather =  (city) =>{
        return  axios.get(API_URL + location + process.env.REACT_APP_API_KEY)
 
             .then(res => dispatch(getWeather(res.data.main)))
-
+            .then(response => dispatch(getCityName(response)))
         }
 
 }
