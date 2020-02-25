@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import { connect } from 'react-redux';
 
-import {fetchApiWeather} from '../action';
+
 import Button from 'react-bootstrap/Button';
-
-
 
 
 class WeatherDisplay extends Component {
@@ -19,7 +17,8 @@ class WeatherDisplay extends Component {
                 <h3> Weather Results for your city are :</h3>
                
                 <h2> {} </h2>
-                <h3> input name is : { this.props.locationProp} </h3>
+                <h3> the city you have chose is : { this.props.cityProp} </h3>
+                <h4> the current temp is {this.props.tempProp}</h4>
             </Jumbotron>
             <Button onClick={this.props.onCall}>view results </Button>
         </div>
@@ -28,11 +27,12 @@ class WeatherDisplay extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.counter2, "stata props map")
+    console.log(state.counter3, "stata props map")
     return {
         countOneProp: state.counter3,
-        locationProp : state.counter2
-   
+        locationProp : state.counter2,
+        cityProp :state.counter3.name,
+        tempProp: parseFloat(state.counter3.temp - 273.15).toFixed(2)
     };
 
 }
@@ -41,9 +41,7 @@ const mapDispatchToProps = (dispatch,state) =>  {
  
       return {
 
-        propCity: state.counter2,
-         onCall: () =>  dispatch(fetchApiWeather(this.propCity))
-            
+        
          
       
       }

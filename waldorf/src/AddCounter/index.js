@@ -60,7 +60,7 @@ eventChangeHandler(e) {
 
 
 const mapStateToProps = (state) => {
-    console.log(state.counter3,"in inedex file ")
+    console.log(state.counter3,"in inedex file  add counter")
     return {
         ctr: state.counter1,
         inputProp: state.counter2
