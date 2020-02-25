@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import WeatherDisplay from '../WeatherDisplay';
-
+import {fetchApiWeather} from '../action';
 
 class AddCounter extends Component {
 
@@ -44,7 +44,7 @@ eventChangeHandler(e) {
                                 id="form"
                             />
                             <InputGroup.Append>
-                                <Button variant="outline-secondary"  onClick={this.props.onAddNewData} >Submit</Button>
+                                <Button variant="outline-secondary"  onClick={this.props.onCall} >Submit</Button>
                             </InputGroup.Append>
                         </InputGroup>
                     </Col>
@@ -60,10 +60,13 @@ eventChangeHandler(e) {
 
 
 const mapStateToProps = (state) => {
+    console.log(state.counter3,"in inedex file ")
     return {
         ctr: state.counter1,
         inputProp: state.counter2
+  
     }
+   
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -78,7 +81,8 @@ const mapDispatchToProps = (dispatch) => {
             type: "ADD_DATA",
             payload: document.getElementById('form').value
       
-        })
+        }),
+        onCall: () =>  dispatch(fetchApiWeather(document.getElementById('form').value))
        
     }
   

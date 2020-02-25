@@ -3,11 +3,11 @@
 const initialState = {
     counter1: 1,
     counter2: "enter city",
-    counter3: "..."
+    counter3: []
 }
 
 const reducer = (state = initialState, action)  => {
-console.log(state.counter3, "reducer")
+
     if (action.type === "ADD_COUNTER1"){
         return{
             ...state,
@@ -28,11 +28,9 @@ console.log(state.counter3, "reducer")
     }
     else if(action.type ==="ADD_API"){
       
-        return{
-            ...state, 
-             counter3:action.payload,
-           
-        }
+        return  Object.assign({}, state, {
+            counter3: action.payload
+          })
      
     }
   
